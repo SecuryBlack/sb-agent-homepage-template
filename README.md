@@ -1,46 +1,46 @@
 # SecuryBlack Agent Homepage Template
 
-Plantilla base oficial y sistema de diseño **Catalyst** para todas las páginas web de los agentes de SecuryBlack (`titan-vault-homepage`, `oxi-pulse-homepage`, `ferro-sentry-homepage`, `cupra-flow-homepage`).
+Official base template and **Catalyst** design system for all SecuryBlack agent websites (`titan-vault-homepage`, `oxi-pulse-homepage`, `ferro-sentry-homepage`, `cupra-flow-homepage`, `cromo-forge-homepage`).
 
 ---
 
-## 🎯 Por qué existe este repositorio
+## 🎯 Architecture & Purpose
 
-Así como todos los agentes en Rust comparten el runtime y los sockets a través de [`sb-agent-core`](https://github.com/securyblack/sb-agent-core), todas las páginas web de los agentes comparten esta **Plantilla Base ("Web Core")**.
+Just as all native Rust agents share runtimes and networking primitives through [`sb-agent-core`](https://github.com/securyblack/sb-agent-core), all agent websites share this unified **Homepage Template ("Web Core")**.
 
-### Características del Sistema:
-1. **Diseño Catalyst de Alta Precisión:** Basado 100% en la interfaz moderna de la **App de SecuryBlack** (`bg-zinc-950`, micro-bordes `border-zinc-800`, tipografía `Inter` con `cv11`, micro-animaciones con `motion`).
-2. **Desacoplamiento Total (Motor vs Contenido):** Todo el código visual, layout, responsive y SEO es compartido. Los textos, colores, métricas y comandos se configuran en **un único archivo**: [`config/agent.config.ts`](config/agent.config.ts).
-3. **Simulador de Terminal Interactivo:** Showcase en vivo de la consola o TUI del agente en el navegador sin necesidad de grabaciones o capturas estáticas.
-4. **Despliegue Nativo a Cloudflare Pages:** Preparado para compilar con `@opennextjs/cloudflare` mediante `npm run build:cf`.
+### Core Features:
+1. **Precision Catalyst Design System:** 100% aligned with the **SecuryBlack App** UI (`bg-zinc-950`, micro-borders `border-zinc-800`, `Inter` typography with `cv11`, smooth animations with `motion`).
+2. **Total Separation of Engine vs Content:** Visual layouts, animations, responsive design, and SEO components are shared. Text copy, theme colors, technical benchmarks, and install snippets live in a single config file: [`config/agent.config.ts`](config/agent.config.ts).
+3. **Interactive Terminal Simulator:** Live browser showcase simulating the agent's interactive terminal TUI without static screenshots or heavy video assets.
+4. **Cloudflare Pages Native:** Ready for edge deployment with `@opennextjs/cloudflare` via `npm run build:cf`.
 
 ---
 
-## 🚀 Cómo crear una nueva web de agente a partir de esta plantilla
+## 🚀 How to Export or Sync an Agent Homepage
 
-### Paso 1: Clonar el repositorio
+### Step 1: Clone the repository
 ```bash
-git clone https://github.com/securyblack/sb-agent-homepage-template mi-agente-homepage
-cd mi-agente-homepage
+git clone https://github.com/securyblack/sb-agent-homepage-template my-agent-homepage
+cd my-agent-homepage
 npm install
 ```
 
-### Paso 2: Configurar tu agente en `config/agent.config.ts`
-Modifica las variables de identidad:
+### Step 2: Configure your agent in `config/agent.config.ts`
+Set the agent identity, theme, and features:
 ```ts
 export const activeAgentConfig: AgentConfig = {
-  id: "mi-agente",
-  name: "MiAgente",
-  tagline: "El mejor agente de observabilidad",
+  id: "my-agent",
+  name: "MyAgent",
+  tagline: "High-performance server observability",
   theme: {
-    primary: "#10B981",       // Color primario
+    primary: "#10B981",       // Primary accent
     primaryDark: "#059669",
     primaryLight: "#34D399",
     glow: "rgba(16, 185, 129, 0.15)",
     accentTag: "emerald",
   },
   installCommands: [
-    { os: "Linux", cmd: "curl -fsSL https://install.mi-agente.dev | sudo bash" }
+    { os: "Linux", cmd: "curl -fsSL https://install.myagent.dev | sudo bash" }
   ],
   stats: [ ... ],
   features: [ ... ],
@@ -48,26 +48,32 @@ export const activeAgentConfig: AgentConfig = {
 };
 ```
 
-### Paso 3: Probar en local y desplegar
+### Step 3: Local development & edge build
 ```bash
-# Desarrollo local
+# Run local dev server
 npm run dev
 
-# Compilación para Cloudflare Pages
+# Build for Cloudflare Pages
 npm run build:cf
+```
+
+### Export Script
+You can automatically sync or bootstrap any agent website using the built-in sync script:
+```bash
+node scripts/export-agent.mjs ../oxi-pulse-homepage oxi-pulse
 ```
 
 ---
 
-## 🎨 Paleta Oficial de Agentes SecuryBlack
+## 🎨 Official SecuryBlack Agent Palette
 
-| Agente | Color Primario | Acento | Propósito |
+| Agent | Primary Color | Accent | Purpose |
 |---|---|---|---|
-| **TitanVault** | **Cyan (`#06B6D4`)** | Sky (`#38BDF8`) | Almacenamiento, backups y disaster recovery |
-| **OxiPulse** | **Menta (`#33E1BF`)** | Emerald (`#10B981`) | Métricas, vitales de CPU/RAM, heartbeats |
-| **FerroSentry** | **Escarlata (`#F43F5E`)** | Rose (`#FB7185`) | Auditoría de seguridad, EDR, hardening |
-| **CupraFlow** | **Cobre (`#F97316`)** | Orange (`#FB923C`) | Networking, balanceo y failover VIP |
-| **CromoForge** | **Cobalto (`#6366F1`)** | Violet (`#818CF8`) | CI/CD, despliegues de contenedores Docker |
+| **TitanVault** | **Cyan (`#06B6D4`)** | Sky (`#38BDF8`) | Zero-disk streaming backups & disaster recovery |
+| **OxiPulse** | **Mint (`#33E1BF`)** | Emerald (`#10B981`) | Real-time vital signs, CPU/RAM, OTLP metrics |
+| **FerroSentry** | **Scarlet (`#F43F5E`)** | Rose (`#FB7185`) | Host security, lightweight EDR, nftables firewall |
+| **CupraFlow** | **Copper (`#F97316`)** | Orange (`#FB923C`) | High availability, VRRP VIP failover, WireGuard mesh |
+| **CromoForge** | **Cobalt (`#6366F1`)** | Violet (`#818CF8`) | GitOps, atomic container delivery & auto-rollback |
 
 ---
 

@@ -2,7 +2,7 @@
   "name": "sb-agent-homepage-template",
   "version": "0.1.0",
   "private": true,
-  "description": "Plantilla base oficial y diseño Catalyst para las webs de los agentes de SecuryBlack",
+  "description": "Official base template and Catalyst design for SecuryBlack agent websites",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
