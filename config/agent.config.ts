@@ -527,7 +527,7 @@ export const cromoForgeConfig: AgentConfig = {
   binaryName: "cromoforge",
   productTitle: "CromoForge — Autonomous GitOps & Container Continuous Delivery",
   badge: "Rust Native · Open Source · Apache 2.0",
-  version: "v0.1.0",
+  version: "v0.1.4",
   tagline: "Zero-Downtime GitOps & Container Deployments on Any Server",
   description:
     "Despliegues atómicos y sincronización GitOps directamente en tus servidores. Pull inteligente de imágenes Docker/Podman, verificaciones de salud previas al switch, rollback instantáneo y TUI interactiva.",
